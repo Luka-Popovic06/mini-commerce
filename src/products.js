@@ -1,4 +1,4 @@
-export const products = [
+export const productsArray = [
   {
     name: "Sushi",
     description: "Finest fish and veggies",

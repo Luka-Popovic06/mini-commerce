@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { products } from "./products.js";
+import { productsArray } from "./products.js";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [products, setProducts] = useState(productsArray);
 
   return (
     <>
@@ -27,6 +27,29 @@ function App() {
           </svg>
         </button>
       </nav>
+      <main>
+        <form className="search-form">
+          <label htmlFor="search-input" className="search-label">
+            Search product
+          </label>
+          <input
+            type="text"
+            id="search-input"
+            name="search-input"
+            className="search-input"
+          />
+        </form>
+        <ul className="list"></ul>
+        <button type="button" className="go-to-cart-btn">
+          Go to your cart
+        </button>
+        <div className="total-price-box">
+          <p className="total-price-title">Toatal Price:</p>
+          <p className="total-price-p">
+            <span className="total-price"></span>
+          </p>
+        </div>
+      </main>
     </>
   );
 }
