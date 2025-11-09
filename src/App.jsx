@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { productsArray } from "./products.js";
+import Meal from "./Meal.jsx";
 import "./App.css";
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
           </svg>
         </button>
       </nav>
-      <main>
+      <main className="container">
         <form className="search-form">
           <label htmlFor="search-input" className="search-label">
             Search product
@@ -39,16 +40,22 @@ function App() {
             className="search-input"
           />
         </form>
-        <ul className="list"></ul>
+        <ul className="list">
+          {products.map((product) => {
+            return <Meal key={product.id} {...product} />;
+          })}
+        </ul>
         <button type="button" className="go-to-cart-btn">
           Go to your cart
         </button>
-        <div className="total-price-box">
-          <p className="total-price-title">Toatal Price:</p>
-          <p className="total-price-p">
-            <span className="total-price"></span>
-          </p>
-        </div>
+        <section className="section-total-price">
+          <div className="total-price-box">
+            <p className="total-price-title">Toatal Price:</p>
+            <p className="total-price-p">
+              <span className="total-price">91</span>$
+            </p>
+          </div>
+        </section>
       </main>
     </>
   );

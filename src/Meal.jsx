@@ -1,15 +1,21 @@
 const Meal = (props) => {
+  const { id, name, description, price } = props;
   return (
-    <li className="list-element">
+    <li
+      className="list-element"
+      style={
+        id !== 4 ? { borderBottom: "1px solid #ddd" } : { borderBottom: "none" }
+      }
+    >
       <div>
-        <p className="p-name">Sushi</p>
-        <p className="p-description">Finest fish and veggies</p>
+        <p className="p-name">{name}</p>
+        <p className="p-description">{description}</p>
         <p className="p-price">
-          <span className="price">22.99</span>$
+          <span className="price">{price}</span>$
         </p>
       </div>
       <form>
-        <div>
+        <div className="amount-box">
           <label htmlFor="number-input">Amount</label>
           <input
             type="number"
@@ -18,7 +24,9 @@ const Meal = (props) => {
             className="number-input"
           />
         </div>
-        <button type="submit">+ADD</button>
+        <button className="btn-add" type="submit">
+          +ADD
+        </button>
       </form>
     </li>
   );
